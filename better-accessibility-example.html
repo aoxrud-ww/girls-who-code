@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="description" content="" />
+    <meta name="author" content="Alex Oxrud @ WW Inc" />
+
+    <title>Better Accessibility</title>
+
+    <style>
+      * {
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 16px;
+        line-height: 1.2;
+        box-sizing: border-box;
+      }
+
+      body {
+        /* background-color: #400064; */
+        margin: 0;
+        padding: 0;
+      }
+
+      ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+      }
+
+      .visually-hidden {
+        position: absolute;
+        left: -10000px;
+        top: auto;
+        width: 1px;
+        height: 1px;
+        overflow: hidden;
+      }
+
+      .nav-link {
+        color: black;
+        cursor: pointer;
+        color: #ffffff;
+        text-decoration: none;
+      }
+
+      .nav-link + .nav-link {
+        margin-left: 40px;
+      }
+
+      .headline {
+        margin-top: 40px;
+        font-size: 24px;
+        font-weight: bold;
+      }
+
+      .navigation {
+        display: flex;
+        background-color: #400064;
+        padding: 20px;
+      }
+
+      .page {
+        margin: 20px;
+      }
+
+      .columns {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        margin-top: 20px;
+      }
+
+      .right {
+        margin-left: 10px;
+      }
+
+      .image {
+        max-width: 400px;
+      }
+
+      .subhead {
+        font-size: 18px;
+        margin-bottom: 10px;
+        font-weight: bold;
+      }
+
+      .section + .section {
+        margin-top: 40px;
+      }
+
+      .subscribe-input {
+        height: 40px;
+        border-top-left-radius: 5px;
+        border-bottom-left-radius: 5px;
+        vertical-align: middle;
+        margin: 0;
+      }
+
+      .subscribe-button {
+        height: 40px;
+        border-top-right-radius: 5px;
+        border-bottom-right-radius: 5px;
+        vertical-align: middle;
+      }
+
+      .newsletter {
+        background-color: rgba(0, 0, 0, 0.2);
+        padding: 20px;
+        text-align: center;
+      }
+
+      .featured-headline {
+        font-weight: bold;
+      }
+
+      .featured-image {
+        max-width: 200px;
+      }
+
+      .recipe {
+        display: inline-block;
+        border: 1px solid rgba(0, 0, 0, 0.2);
+        border-radius: 5px;
+        width: 400px;
+        padding: 20px;
+        text-align: center;
+      }
+
+      .recipe + .recipe {
+        margin-left: 20px;
+      }
+
+      .featured-recipe-title {
+        margin-top: 50px;
+        margin-bottom: 10px;
+        font-size: 18px;
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="navigation">
+      <a href="/shop/food-and-drink" class="nav-link"> Food &amp; Drink </a>
+      <a href="/shop/kitchen-and-lifestyle" class="nav-link">
+        Kitchen &amp; Lifestyle
+      </a>
+      <a href="/shop/best-sellers" class="nav-link">Best Sellers</a>
+    </nav>
+
+    <div class="page">
+      <h1 class="headline">Banana and oat smoothie</h1>
+
+      <div class="columns">
+        <div class="left">
+          <img
+            src="https://www.weightwatchers.com.au/images/3081/dynamic/foodandrecipes/2016/04/BananaOat%20Smoothie_XXL.jpg"
+            class="image"
+            alt="banana smoothie in a cup with sliced bananas as garnish"
+          />
+        </div>
+        <div class="right">
+          <div class="section">
+            <h2 class="subhead" id="ingredients">Ingredients</h2>
+            <ul aria-labelledby="ingredients">
+              <li class="ingredient">1 small Banana</li>
+              <li class="ingredient">¼ cup Dry rolled oats</li>
+              <li class="ingredient">1 cup milk</li>
+              <li class="ingredient">½ tsp Ground cinnamon</li>
+            </ul>
+          </div>
+
+          <div class="section">
+            <h2 class="subhead" id="instructions">Instructions</h2>
+            <ul aria-labelledby="instructions">
+              <li class="instruction">
+                Blend banana, rolled oats, oat milk and a pinch of cinnamon
+                until smooth and frothy.
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="newsletter">
+        Subscribe to our newsletter to get more recipes
+
+        <form>
+          <label class="visually-hidden" for="subscribe-input">Email</label>
+          <input
+            type="text"
+            placeholder="Enter your email"
+            class="subscribe-input"
+            id="subscribe-input"
+          />
+          <button class="subscribe-button">Subscribe</button>
+        </form>
+      </div>
+
+      <h2 class="featured-recipe-title" id="similar-recipes">
+        Recipes containing Bananas
+      </h2>
+      <ul class="featured-recipes" aria-labelledby="similar-recipes">
+        <li class="recipe">
+          <img
+            src="https://cmx.weightwatchers.com.au/assets-proxy/weight-watchers/image/upload/q_auto/adno1d2szcxpfljttpfp.jpg?auto=webp"
+            class="featured-image"
+            alt="banana pancakes"
+          />
+          <h3 class="featured-headline">3-ingredient banana pancakes</h3>
+          <p>Wondering what to do with over ripe bananas?</p>
+          <a href="/recipes/banana-pancake"
+            >See recipe
+            <span class="visually-hidden">3-ingredient banana pancakes</span></a
+          >
+        </li>
+
+        <li class="recipe">
+          <img
+            src="https://cmx.weightwatchers.com.au/assets-proxy/weight-watchers/image/upload/q_auto/r1c3bqmnosoivktpg4xj.jpg?auto=webp"
+            class="featured-image"
+            alt="banana loaf"
+          />
+          <h3 class="featured-headline">Sarah’s banana loaf</h3>
+          <p>Recipe by our WW Ambassador Sarah.</p>
+          <a href="/recipes/banana-loaf"
+            >See recipe
+            <span class="visually-hidden">Sarah’s banana loaf</span></a
+          >
+        </li>
+      </ul>
+    </div>
+  </body>
+</html>
