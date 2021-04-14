@@ -23,5 +23,7 @@ The presentation can be found:
   - There are no semantic headlines or semantic links.
 
 
+### Looking for more?
 
+Check out my [Web Accessibility Tips and Tricks repo](https://github.com/aoxrud-ww/web-accessibility-tips)
   
